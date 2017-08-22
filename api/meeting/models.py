@@ -6,6 +6,7 @@ class Meeting(models.Model):
 	ppt = models.FileField(upload_to='apresentacao_reuniao/%Y/%m/%d/', null=False, blank=False)
 	pdf = models.FileField(upload_to='ata_reuniao/%Y/%m/%d/', null=False, blank=False)
 	date = models.DateField('Data da Ata de reunião', null=True, blank=True)
+	meetingType = models.CharField('Tipo de reuniao', max_length=500)
 
 	created_at  = models.DateTimeField('Criado em', auto_now_add=True)
 	updated_at  = models.DateTimeField('Atualizado em', auto_now=True)

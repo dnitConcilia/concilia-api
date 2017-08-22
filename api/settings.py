@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 	'api.common_questions',
 	'api.communities',
 	'api.timeline',
+	'api.documents',
 ]
 
 SITE_ID = 1
