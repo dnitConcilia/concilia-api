@@ -18,15 +18,15 @@ class CategoryNews(models.Model):
 class News(models.Model):
 
 	title = models.CharField('Título', max_length=500)
-	sub_title = models.CharField('Subtítulo', max_length=500, null=True, blank=True)
+	subTitle = models.CharField('Subtítulo', max_length=500, null=True, blank=True)
 	text = models.TextField(verbose_name='Texto', null=True, blank=True)
 	categoryNews = models.ForeignKey('news.CategoryNews', blank=True, null=True)
 	published_at = models.DateTimeField('Data de publicação', null=True)
 	image = models.ImageField(upload_to='news/images', verbose_name='Imagem de capa para a Notícia', null=True, blank=True)
-	legend_image = models.CharField('Legenda da Imagem', max_length=200, null=True, blank=True)
-	credits_image = models.CharField('Creditos da imagem', max_length=200, null=True, blank=True)
+	legendImage = models.CharField('Legenda da Imagem', max_length=200, null=True, blank=True)
+	creditsImage = models.CharField('Creditos da imagem', max_length=200, null=True, blank=True)
 	author = models.ForeignKey('accounts.User', verbose_name='Criado por', editable=False)
-	notice_origin = models.CharField('Fonte da notícia', max_length=200, null=True, blank=True)
+	noticeOrigin = models.CharField('Fonte da notícia', max_length=200, null=True, blank=True)
 	slug = models.SlugField('Identificador', max_length=500, null=False, blank=False, unique=True, help_text="'slug' é um identificador único que será mostrado na url")
 	is_public = models.BooleanField(('É Pública ?'), default=True, blank=True, help_text=('Somente as notícias marcadas como públicas serão apresentadas no site.'))
 
@@ -37,7 +37,7 @@ class News(models.Model):
 	class Meta:
 		verbose_name = 'Notícia'
 		verbose_name_plural = 'Notícias'
-		ordering = ['-published_at', 'legend_image']
+		ordering = ['-published_at', 'legendImage']
 
 	def __str__(self):
 		return self.title
