@@ -28,7 +28,7 @@ class CategoryNewsViewSet(viewsets.ModelViewSet):
 
 
 class NewsViewSet(viewsets.ModelViewSet):
-	queryset = News.objects.all()
+	queryset = News.objects.all().order_by('-published_at')
 	serializer_class = NewsReadSerializer
 	permission_classes = (IsAuthenticated,)
 
@@ -61,7 +61,7 @@ class NewsLastSixView(viewsets.ModelViewSet):
 
 	def list(self, request, *args, **kwargs):
 		try:
-			last_ten = News.objects.all().order_by('-id')[:4]
+			last_ten = News.objects.all().order_by('-published_at')[:6]
 			last_ten_in_ascending_order = reversed(last_ten)
 			news = NewsReadSerializer(last_ten_in_ascending_order, many=True)
 			return HttpResponse(json.dumps(news.data),

@@ -15,6 +15,7 @@ from api.meeting.urls import router as routerMeeting
 from api.communities.urls import router as routerCommunities
 from api.timeline.urls import router as routerTimeline
 from api.documents.urls import router as routerDocuments
+from api.gallery.urls import router as routerGallery
 
 router = routers.DefaultRouter()
 router.extend(routerAccounts)
@@ -24,6 +25,7 @@ router.extend(routerMeeting)
 router.extend(routerCommunities)
 router.extend(routerTimeline)
 router.extend(routerDocuments)
+router.extend(routerGallery)
 
 urlpatterns = [
 	url(r'^admin/', admin.site.urls),

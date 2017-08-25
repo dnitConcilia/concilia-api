@@ -21,7 +21,7 @@ class News(models.Model):
 	subTitle = models.CharField('Subtítulo', max_length=500, null=True, blank=True)
 	text = models.TextField(verbose_name='Texto', null=True, blank=True)
 	categoryNews = models.ForeignKey('news.CategoryNews', blank=True, null=True)
-	published_at = models.DateTimeField('Data de publicação', null=True)
+	published_at = models.DateField('Data de publicação', null=True)
 	image = models.ImageField(upload_to='news/images', verbose_name='Imagem de capa para a Notícia', null=True, blank=True)
 	legendImage = models.CharField('Legenda da Imagem', max_length=200, null=True, blank=True)
 	creditsImage = models.CharField('Creditos da imagem', max_length=200, null=True, blank=True)
@@ -30,7 +30,7 @@ class News(models.Model):
 	slug = models.SlugField('Identificador', max_length=500, null=False, blank=False, unique=True, help_text="'slug' é um identificador único que será mostrado na url")
 	is_public = models.BooleanField(('É Pública ?'), default=True, blank=True, help_text=('Somente as notícias marcadas como públicas serão apresentadas no site.'))
 
-	expired_at = models.DateTimeField('Data de expiração da notícia', null=True, blank=True)
+	expired_at = models.DateField('Data de expiração da notícia', null=True, blank=True)
 	created_at = models.DateTimeField('Criado em', auto_now_add=True)
 	updated_at = models.DateTimeField('Atualizado em', auto_now=True)
 

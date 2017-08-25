@@ -3,6 +3,7 @@ from rest_framework import serializers
 from api.news.models import CategoryNews, News
 from api.accounts.models import User
 from api.accounts.serializers import UserReadSerializer
+from api.core.utils import slugifyTitle
 
 
 class CategoryNewsReadSerializer(serializers.ModelSerializer):
@@ -33,7 +34,7 @@ class NewsReadSerializer(serializers.ModelSerializer):
 class NewsWriteSerializer(serializers.ModelSerializer):
 	id_categoryNews = serializers.IntegerField(write_only=True, required=False)
 	id_author = serializers.IntegerField(write_only=True, required=False)
-	image = serializers.ImageField(max_length=None, use_url=True, allow_empty_file=True)
+	# image = serializers.ImageField(required=False, max_length=None, allow_empty_file=True, use_url=True)
 
 	def create(self, validated_data):
 		errors = {
@@ -57,23 +58,32 @@ class NewsWriteSerializer(serializers.ModelSerializer):
 			}
 			errors['hasError'] = True
 
+		if errors['hasError']:
+			raise errors
+
+		slug = ''
+		if validated_data.get('published_at'):
+			slug = slugifyTitle(validated_data.get('title'), validated_data.get('published_at'))
+		else:
+			slug = slugifyTitle(validated_data.get('title'))
 		user = User.objects.get(pk=validated_data.pop('id_author'))
 		new, created = News.objects.get_or_create(
 			title=validated_data.pop('title'),
-			sub_title=validated_data.pop('sub_title'),
+			subTitle=validated_data.pop('subTitle'),
 			text=validated_data.pop('text'),
 			categoryNews=catNews,
 			published_at=validated_data.pop('published_at'),
 			expired_at=validated_data.pop('expired_at'),
-			image=validated_data.pop('image'),
-			legend_image=validated_data.pop('legend_image'),
-			credits_image=validated_data.pop('credits_image'),
+			legendImage=validated_data.pop('legendImage'),
+			creditsImage=validated_data.pop('creditsImage'),
+			slug=slug,
 			author=user,
-			notice_origin=validated_data.pop('notice_origin'),
-			slug=validated_data.pop('slug'),
+			noticeOrigin=validated_data.pop('noticeOrigin'),
 			is_public=validated_data.pop('is_public')
 		)
-
+		if validated_data.get('image'):
+			new.image = validated_data.pop('image')
+		new.save()
 		return new
 
 	def update(self, instance, validated_data):
@@ -97,27 +107,32 @@ class NewsWriteSerializer(serializers.ModelSerializer):
 			}
 			errors['hasError'] = True
 
+		slug = ''
+		if validated_data.get('published_at'):
+			slug = slugifyTitle(validated_data.get('title'), validated_data.get('published_at'))
+		else:
+			slug = slugifyTitle(validated_data.get('title'))
+
 		user = User.objects.get(pk=validated_data.pop('id_author'))
 		News.objects.filter(pk=instance.pk).update(
 			title=validated_data.pop('title'),
-			sub_title=validated_data.pop('sub_title'),
+			subTitle=validated_data.pop('subTitle'),
 			text=validated_data.pop('text'),
 			categoryNews=catNews,
 			published_at=validated_data.pop('published_at'),
 			expired_at=validated_data.pop('expired_at'),
-			created_at=validated_data.pop('created_at'),
-			updated_at=validated_data.pop('updated_at'),
-			image=validated_data.pop('image'),
-			legend_image=validated_data.pop('legend_image'),
-			credits_image=validated_data.pop('credits_image'),
+			legendImage=validated_data.pop('legendImage'),
+			creditsImage=validated_data.pop('creditsImage'),
+			slug=slug,
 			author=user,
-			notice_origin=validated_data.pop('notice_origin'),
-			slug=validated_data.pop('slug'),
+			noticeOrigin=validated_data.pop('noticeOrigin'),
 			is_public=validated_data.pop('is_public')
 		)
-
+		if validated_data.get('image'):
+			instance.image = validated_data.pop('image')
+		instance.save()
 		return instance
 
 	class Meta:
 		model = News
-		exclude = ('id', 'categoryNews', 'image', 'created_at', 'updated_at')
+		exclude = ('id', 'slug', 'categoryNews', 'created_at', 'updated_at')
