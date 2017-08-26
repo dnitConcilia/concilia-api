@@ -62,7 +62,7 @@ class CategoryGalleryViewSet(viewsets.ModelViewSet):
 
 
 class GalleryViewSet(viewsets.ModelViewSet):
-	queryset = Gallery.objects.all().order_by('-published_at')
+	queryset = Gallery.objects.all()
 	serializer_class = GalleryReadSerializer
 	permission_classes = (IsAuthenticated,)
 

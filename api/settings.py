@@ -130,7 +130,7 @@ CORS_ALLOW_METHODS = (
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': os.path.join(BASE_DIR, 'db.rondon'),
+		'NAME': os.path.join(BASE_DIR, 'concilia.sqlit3'),
 	}
 }
 
