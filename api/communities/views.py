@@ -19,3 +19,17 @@ class CommunityViewSet(viewsets.ModelViewSet):
 			serializer_class = CommunityWriteSerializer
 
 		return serializer_class
+
+class CommunitySlugView(viewsets.ModelViewSet):
+	permission_classes = (IsAuthenticated,)
+
+	def list(self, request, *args, **kwargs):
+		try:
+			news = CommunityReadSerializer(Community.objects.filter(slug=self.kwargs['slug'])[0])
+			return HttpResponse(json.dumps(news.data),
+				content_type="application/json"
+			)
+		except:
+			return HttpResponse(json.dumps({}),
+					content_type="application/json"
+				)
