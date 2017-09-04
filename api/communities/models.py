@@ -3,6 +3,10 @@ from django.db import models
 class Community(models.Model):
 	title = models.CharField('Nome da Vila ou Comunidade', max_length=500)
 	text = models.TextField(verbose_name='Sobre a comunidade', null=True, blank=True)
+	textMap = models.TextField(verbose_name='Resumo da comunidade', null=True, blank=True, help_text="Esse campo deve ser preenchido com o resumo sobre a comunidade e será apresentado no mapa com todas as comunidades")
+	image = models.ImageField(upload_to='communities/images', verbose_name='Imagem para o mapa das comunidades', null=True, blank=True)
+	credit = models.CharField('Cŕeditos da imagem', max_length=100, blank=True, null=True)
+	caption = models.CharField('Legenda da imagem', max_length=300, blank=True, null=True)
 	lat = models.CharField('Latitude', max_length=100, blank=True, null=False)
 	lng = models.CharField('Longitude', max_length=100, blank=True, null=False)
 	slug = models.SlugField('Identificador', max_length=500, null=False, blank=False, unique=True, help_text="'slug' é um identificador único que será mostrado na url")
@@ -18,7 +22,7 @@ class Community(models.Model):
 	def save(self, *args, **kwargs):
 		if self.slug is None:
 			self.slug = slugify(self.title)
-		super(Comunidade, self).save(*args, **kwargs)
+		super(Community, self).save(*args, **kwargs)
 
 	def __str__(self):
 		return self.title

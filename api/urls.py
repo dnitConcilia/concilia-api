@@ -31,10 +31,13 @@ router.extend(routerGallery)
 urlpatterns = [
 	url(r'^admin/', admin.site.urls),
 	url(r'^login/', authtoken.obtain_auth_token),
+
+	url(r'^api/', include('api.core.urls', namespace='core')),
+
 	url(r'^api/news-slug/(?P<slug>[\-\d\w]+)/$', NewsSlugView.as_view({'get': 'list'})),
 	url(r'^api/news-last-six/$', NewsLastSixView.as_view({'get': 'list'})),
+
 	url(r'^api/community-slug/(?P<slug>[\-\d\w]+)/$', CommunitySlugView.as_view({'get': 'list'})),
-	url(r'^api/', include('api.core.urls', namespace='core')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
