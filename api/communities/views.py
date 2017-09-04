@@ -1,5 +1,7 @@
+import json
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
+from django.http import HttpResponse
 
 from api.communities.models import Community
 from api.communities.serializers import CommunityReadSerializer, CommunityWriteSerializer

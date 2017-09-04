@@ -1,0 +1,137 @@
+[{
+    "model":"common_questions.CategoryFaq",
+    "pk":1,
+    "fields":{
+        "name":"O PROGRAMA",
+        "created_at":"2017-07-10T14:04:57.220Z",
+        "updated_at":"2017-07-10T14:04:57.220Z"
+    }
+},
+{
+    "model":"common_questions.CategoryFaq",
+    "pk":2,
+    "fields":{
+        "name":"OCUPA\u00c7\u00d5ES",
+        "created_at":"2017-07-10T14:05:05.955Z",
+        "updated_at":"2017-07-10T14:05:05.955Z"
+    }
+},
+{
+    "model":"common_questions.CategoryFaq",
+    "pk":3,
+    "fields":{
+        "name":"REASSENTAMENTO",
+        "created_at":"2017-07-10T14:05:12.737Z",
+        "updated_at":"2017-07-10T14:05:12.737Z"
+    }
+},
+{
+    "model":"common_questions.Faq",
+    "pk":1,
+    "fields":{
+        "question":"O Programa: Como funciona?",
+        "answer":"O Programa abrange 330 km, sendo 27 deles no Anel Rodovi\u00e1rio e 303 km na BR-381. A estimativa \u00e9 remover cerca de 1.500 fam\u00edlias no Anel e 368 na BR-381, que estavam instaladas no limite da\u00a0faixa de dom\u00ednio da rodovia at\u00e9 dezembro de 2012 e j\u00e1 foram sensibilizadas quanto \u00e0 mudan\u00e7a de moradia. \r\nAntes do reassentamento definitivo dos moradores \u00e9 realizado o cadastramento das fam\u00edlias e a selagem das moradias. Os dados coletados fornecem subs\u00eddios para tra\u00e7ar o perfil de cada n\u00facleo familiar e municia o Programa com informa\u00e7\u00f5es essenciais para a remo\u00e7\u00e3o e o reassentamento. \r\nNo Anel Rodovi\u00e1rio, a estimativa \u00e9 que existam cerca de 34 vilas, mas nem todas ser\u00e3o removidas. Isso depender\u00e1 do projeto de obra a ser licitado e executado.",
+        "category":1,
+        "created_at":"2017-07-10T14:05:36.019Z",
+        "updated_at":"2017-07-21T20:59:30.162Z"
+    }
+},
+{
+    "model":"common_questions.Faq",
+    "pk":2,
+    "fields":{
+        "question":"Como \u00e9 feita a escolha da casa para a qual a fam\u00edlia ir\u00e1 mudar?",
+        "answer":"A casa \u00e9 escolhida pelo pr\u00f3prio morador. Em seguida, os t\u00e9cnicos do Programa visitam e avaliam a habita\u00e7\u00e3o para verificar se est\u00e1 em condi\u00e7\u00f5es f\u00edsicas e sociais adequadas, pois o Programa n\u00e3o retira os moradores de um lugar de risco para colocar em outro. Existe uma preocupa\u00e7\u00e3o com a seguran\u00e7a e o bem estar das fam\u00edlias.",
+        "category":3,
+        "created_at":"2017-07-10T14:05:54.145Z",
+        "updated_at":"2017-07-10T14:05:54.145Z"
+    }
+},
+{
+    "model":"common_questions.Faq",
+    "pk":3,
+    "fields":{
+        "question":"O que tem sido feito com as ocupa\u00e7\u00f5es na altura do bairro Bet\u00e2nia?",
+        "answer":"As novas invas\u00f5es do bairro Bet\u00e2nia, como a Vila Esperan\u00e7a, s\u00e3o em \u00e1reas de propriedade da Prefeitura de Belo Horizonte e, portanto, n\u00e3o est\u00e3o inseridas no Concilia BR-381 e Anel. A responsabilidade pelo controle e retirada de novas invas\u00f5es nessas \u00e1reas \u00e9 da Concession\u00e1ria Via 040, conforme o Programa de Explora\u00e7\u00e3o da Rodovia, que rege todas as atribui\u00e7\u00f5es da concession\u00e1ria durante o per\u00edodo de vig\u00eancia da concess\u00e3o. (Ver http://www.antt.gov.br/index.php/content/view/29461/Via_040.htmlO)",
+        "category":2,
+        "created_at":"2017-07-10T14:06:14.037Z",
+        "updated_at":"2017-07-10T14:06:14.037Z"
+    }
+},
+{
+    "model":"common_questions.Faq",
+    "pk":4,
+    "fields":{
+        "question":"O que \u00e9 feito quando se detecta novas ocupa\u00e7\u00f5es nas rodovias ?",
+        "answer":"Ao constatar uma nova invas\u00e3o, o DNIT, imediatamente, notifica o invasor e solicita a desocupa\u00e7\u00e3o da \u00e1rea. Por vezes, \u00e9 necess\u00e1ria a a\u00e7\u00e3o das pol\u00edcias (Militar e Rodovi\u00e1ria Federal), j\u00e1 que o DNIT n\u00e3o pode exercer coer\u00e7\u00e3o sobre os invasores da Faixa de Dom\u00ednio. N\u00e3o havendo a sa\u00edda do invasor, o DNIT ingressa com uma a\u00e7\u00e3o de reintegra\u00e7\u00e3o de posse e demolit\u00f3ria junto \u00e0 Justi\u00e7a Federal. De posse desse documento, a Justi\u00e7a Federal determina a retirada da fam\u00edlia.",
+        "category":2,
+        "created_at":"2017-07-10T14:06:44.476Z",
+        "updated_at":"2017-07-10T14:06:44.476Z"
+    }
+},
+{
+    "model":"common_questions.Faq",
+    "pk":5,
+    "fields":{
+        "question":"Concilia BR-381 e Anel: O que \u00e9?",
+        "answer":"O Concilia BR-381 e Anel\u00a0- Programa Judicial de Concilia\u00e7\u00e3o para Remo\u00e7\u00e3o e Reassentamento Humanizados de Fam\u00edlias do Anel Rodovi\u00e1rio e BR-381 - \u00e9 um programa de reassentamento criado em fun\u00e7\u00e3o da necessidade de revitaliza\u00e7\u00e3o e amplia\u00e7\u00e3o do Anel Rodovi\u00e1rio de Belo Horizonte e da BR-381 Norte, no trecho entre BH e Governador Valadares. \r\n\u00c9 uma iniciativa da Justi\u00e7a Federal e do Departamento Nacional de Infraestrutura de Transportes (DNIT), em parceria com Minist\u00e9rio P\u00fablico Federal (MPF), Defensoria P\u00fablica da Uni\u00e3o (DPU), Companhia Urbanizadora e de Habita\u00e7\u00e3o de Belo Horizonte (URBEL) e Comunidade de Moradores em \u00c1rea de Risco de Belo Horizonte (CMAR).",
+        "category":1,
+        "created_at":"2017-07-10T14:07:12.150Z",
+        "updated_at":"2017-07-21T20:58:27.604Z"
+    }
+},
+{
+    "model":"common_questions.Faq",
+    "pk":6,
+    "fields":{
+        "question":"Quais fam\u00edlias ser\u00e3o reassentadas em 2017 ?",
+        "answer":"A expectativa \u00e9 que, ainda esse ano, as cerca de 120 fam\u00edlias que foram transferidas para moradias provis\u00f3rias em fun\u00e7\u00e3o da situa\u00e7\u00e3o de risco extremo sejam reassentadas de forma definitiva por meio do Concilia BR-381 e Anel. Tal medida representa uma economia aos cofres p\u00fablicos, uma vez que deixam de existir despesas mensais com o aluguel dessas fam\u00edlias, que giram em torno de 70 mil reais.\r\nTamb\u00e9m ter\u00e3o seus direitos garantidos 68 fam\u00edlias da Vila da Paz e 77 da Vila Pica-Pau, que viviam \u00e0s margens da rodovia. Ambas comunidades s\u00e3o consideradas priorit\u00e1rias no reassentamento. No decorrer de 2015 e 2016 foi feito o cadastramento desses moradores, selagem dos im\u00f3veis e trabalhos de inclus\u00e3o social.",
+        "category":3,
+        "created_at":"2017-07-10T14:07:44.620Z",
+        "updated_at":"2017-07-10T14:07:44.620Z"
+    }
+},
+{
+    "model":"common_questions.Faq",
+    "pk":7,
+    "fields":{
+        "question":"Quais s\u00e3o as fam\u00edlias que t\u00eam direito \u00e0 moradia por meio desse Programa?",
+        "answer":"As fam\u00edlias que moravam na faixa de dom\u00ednio do Departamento de Transportes de Infraestrutura de Transportes (DNIT), at\u00e9 dezembro de 2012, ter\u00e3o direito a um novo im\u00f3vel.",
+        "category":1,
+        "created_at":"2017-07-10T14:08:06.402Z",
+        "updated_at":"2017-07-10T14:08:06.402Z"
+    }
+},
+{
+    "model":"common_questions.Faq",
+    "pk":8,
+    "fields":{
+        "question":"Quais s\u00e3o as possibilidades de reassentamento desse Programa ?",
+        "answer":"O Programa possui 3 op\u00e7\u00f5es de reassentamento: \r\n\r\n1 \u2013 Indeniza\u00e7\u00e3o: S\u00e3o considerados os investimentos feitos pelas fam\u00edlias no im\u00f3vel por um t\u00e9cnico especializado. O valor da indeniza\u00e7\u00e3o dever\u00e1 garantir \u00e0 fam\u00edlia uma moradia digna.\r\n\r\n2 - Compra assistida: aquisi\u00e7\u00e3o de im\u00f3veis dispon\u00edveis em Belo Horizonte, regi\u00e3o metropolitana e colar metropolitano. \u00c9 feita uma an\u00e1lise de habitabilidade que leva em considera\u00e7\u00e3o o perfil de cada n\u00facleo familiar. O pagamento pela aquisi\u00e7\u00e3o da resid\u00eancia \u00e9 depositado diretamente na conta do vendedor.\r\n\r\n3 \u2013 Unidade habitacional: aquisi\u00e7\u00e3o de novas moradias que ainda ser\u00e3o constru\u00eddas.",
+        "category":3,
+        "created_at":"2017-07-10T14:08:41.607Z",
+        "updated_at":"2017-07-10T14:08:41.607Z"
+    }
+},
+{
+    "model":"common_questions.Faq",
+    "pk":9,
+    "fields":{
+        "question":"Qual objetivo do Programa ?",
+        "answer":"Remover e reassentar os moradores que vivem na faixa de dom\u00ednio da rodovia, sem deixar de levar em considera\u00e7\u00e3o seus direitos sociais, sobretudo o da moradia digna.",
+        "category":1,
+        "created_at":"2017-07-10T14:09:14.281Z",
+        "updated_at":"2017-07-10T14:09:14.281Z"
+    }
+},
+{
+    "model":"common_questions.Faq",
+    "pk":10,
+    "fields":{
+        "question":"Todos que moram no entorno do Anel Rodovi\u00e1rio de BH e da BR-381 Norte ter\u00e3o que sair ?",
+        "answer":"Apenas aqueles que moram na faixa de dom\u00ednio da Uni\u00e3o ter\u00e3o que ser reassentados em um novo local, em fun\u00e7\u00e3o da revitaliza\u00e7\u00e3o das vias p\u00fablicas.",
+        "category":3,
+        "created_at":"2017-07-10T14:09:35.939Z",
+        "updated_at":"2017-07-10T14:09:35.939Z"
+    }
+}]
