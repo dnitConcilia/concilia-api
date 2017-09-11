@@ -11,6 +11,7 @@ from api.accounts.urls import router as routerAccounts
 from api.news.urls import router as routerNews
 from api.news.views import NewsSlugView, NewsLastSixView
 from api.common_questions.urls import router as routerCommonQuestions
+from api.meeting.views import MeetingCategoryView
 from api.meeting.urls import router as routerMeeting
 from api.communities.urls import router as routerCommunities
 from api.communities.views import CommunitySlugView
@@ -33,6 +34,8 @@ urlpatterns = [
 	url(r'^login/', authtoken.obtain_auth_token),
 
 	url(r'^api/', include('api.core.urls', namespace='core')),
+
+	url(r'^api/meeting-category/(?P<meetingType>[\-\d\w]+)/$', MeetingCategoryView.as_view({'get': 'list'})),
 
 	url(r'^api/news-slug/(?P<slug>[\-\d\w]+)/$', NewsSlugView.as_view({'get': 'list'})),
 	url(r'^api/news-last-six/$', NewsLastSixView.as_view({'get': 'list'})),

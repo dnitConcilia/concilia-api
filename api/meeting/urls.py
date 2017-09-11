@@ -5,7 +5,7 @@ app_name = 'meeteing'
 
 router = SimpleRouter()
 
-router.register(r'api/meeteing', MeetingViewSet)
+router.register(r'api/meeting', MeetingViewSet)
 
 urlpatterns = []
 
