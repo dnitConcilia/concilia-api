@@ -26,8 +26,8 @@ class Video(models.Model):
 	updated_at  = models.DateTimeField('Atualizado em', auto_now=True)
 
 	class Meta:
-		verbose_name        = "Foto"
-		verbose_name_plural = "Fotos"
+		verbose_name        = "Video"
+		verbose_name_plural = "Videos"
 
 	def __str__(self):
 		return "[{0}] {1}".format(self.credit, self.legend)
@@ -41,8 +41,8 @@ class CategoryGallery(models.Model):
 	updated_at  = models.DateTimeField('Atualizado em', auto_now=True)
 
 	class Meta:
-		verbose_name        = "Categoria da notícia"
-		verbose_name_plural = "Categorias das notícias"
+		verbose_name        = "Categoria da galeria"
+		verbose_name_plural = "Categorias das galerias"
 
 	def __str__(self):
 		return self.name
@@ -63,8 +63,8 @@ class Gallery(models.Model):
 	updated_at = models.DateTimeField('Atualizado em', auto_now=True)
 
 	class Meta:
-		verbose_name = 'Notícia'
-		verbose_name_plural = 'Notícias'
+		verbose_name = 'Galeria'
+		verbose_name_plural = 'Galerias'
 
 	def __str__(self):
 		return self.title

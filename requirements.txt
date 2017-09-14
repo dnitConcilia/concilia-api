@@ -21,6 +21,3 @@ Markdown
 django-filter
 django-cors-headers
 django-rest-swagger
-pygments
-easy-thumbnails==2.4.1
-django-sortedm2m==1.4.0
