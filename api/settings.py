@@ -26,6 +26,9 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+	'jet.dashboard',
+	'jet',
+
 	'django.contrib.admin',
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
@@ -35,9 +38,9 @@ INSTALLED_APPS = [
 	'django.contrib.sitemaps',
 	'django.contrib.sites',
 	# Libs
-	'sortedm2m',
-	# 'widget_tweaks',
-	'easy_thumbnails',
+	# 'sortedm2m',
+	# # 'widget_tweaks',
+	# 'easy_thumbnails',
 	'rest_framework',
 	'rest_framework.authtoken',
 	# utils libs

@@ -21,3 +21,4 @@ Markdown
 django-filter
 django-cors-headers
 django-rest-swagger
+django-jet
