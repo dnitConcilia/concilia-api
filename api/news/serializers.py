@@ -62,8 +62,9 @@ class NewsWriteSerializer(serializers.ModelSerializer):
 			raise errors
 
 		slug = ''
-		if validated_data.get('published_at'):
-			slug = slugifyTitle(validated_data.get('title'), validated_data.get('published_at'))
+		published_at = validated_data.pop('published_at')
+		if published_at:
+			slug = slugifyTitle(validated_data.get('title'), published_at)
 		else:
 			slug = slugifyTitle(validated_data.get('title'))
 		user = User.objects.get(pk=validated_data.pop('id_author'))
@@ -108,8 +109,9 @@ class NewsWriteSerializer(serializers.ModelSerializer):
 			errors['hasError'] = True
 
 		slug = ''
-		if validated_data.get('published_at'):
-			slug = slugifyTitle(validated_data.get('title'), validated_data.get('published_at'))
+		published_at = validated_data.pop('published_at')
+		if published_at:
+			slug = slugifyTitle(validated_data.get('title'), published_at)
 		else:
 			slug = slugifyTitle(validated_data.get('title'))
 
