@@ -30,6 +30,9 @@ router.extend(routerDocuments)
 router.extend(routerGallery)
 
 urlpatterns = [
+	url(r'^jet/', include('jet.urls', 'jet')),
+	url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+
 	url(r'^admin/', admin.site.urls),
 	url(r'^login/', authtoken.obtain_auth_token),
 
