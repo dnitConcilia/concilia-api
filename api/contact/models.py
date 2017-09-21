@@ -7,6 +7,7 @@ class Contact(models.Model):
 	email = models.EmailField("Email")
 	subject = models.CharField('Assunto', max_length=500)
 	message = models.TextField(verbose_name='Mensagem', null=True, blank=True)
+	answered = models.BooleanField(verbose_name='Respondido', default=False)
 
 	created_at = models.DateTimeField('Criado em', auto_now_add=True)
 	updated_at = models.DateTimeField('Atualizado em', auto_now=True)

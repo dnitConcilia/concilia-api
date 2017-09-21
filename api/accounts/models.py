@@ -8,9 +8,9 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
 
 SEXO = (
-	(0, 'Masculino'),
-	(1, 'Feminino'),
-	(2, 'Não fornecer'),
+	('0', 'Masculino'),
+	('1', 'Feminino'),
+	('2', 'Não fornecer'),
 )
 
 class User(AbstractBaseUser, PermissionsMixin):
