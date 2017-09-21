@@ -26,7 +26,7 @@ class CategoryFaqViewSet(viewsets.ModelViewSet):
 
 
 class FaqViewSet(viewsets.ModelViewSet):
-	queryset = Faq.objects.all()
+	queryset = Faq.objects.all().order_by('id')
 	serializer_class = FaqReadSerializer
 	permission_classes = (IsAuthenticated,)
 
