@@ -28,7 +28,7 @@ class Community(models.Model):
 	lng = models.CharField('Longitude', max_length=100, blank=True, null=False)
 	slug = models.SlugField('Identificador', max_length=500, null=False, blank=False, unique=True, help_text="'slug' é um identificador único que será mostrado na url")
 
-	photos = models.ManyToManyField('communities.CommunityPhoto', verbose_name='Fotos da comunidade')
+	photos = models.ManyToManyField('communities.CommunityPhoto', verbose_name='Fotos da comunidade', blank=True, null=True)
 
 	created_at = models.DateTimeField('Criado em', auto_now_add=True)
 	updated_at = models.DateTimeField('Atualizado em', auto_now=True)
