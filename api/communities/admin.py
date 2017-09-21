@@ -1,4 +1,4 @@
 from django.contrib import admin
-from api.communities.models import Community
+from api.communities.models import Community, CommunityPhoto
 
-admin.site.register(Community)
+admin.site.register([Community, CommunityPhoto])

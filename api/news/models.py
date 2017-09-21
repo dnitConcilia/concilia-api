@@ -21,7 +21,7 @@ class News(models.Model):
 	subTitle = models.CharField('Subtítulo', max_length=500, null=True, blank=True)
 	text = models.TextField(verbose_name='Texto', null=True, blank=True)
 	categoryNews = models.ForeignKey('news.CategoryNews', blank=True, null=True)
-	published_at = models.DateField('Data de publicação')
+	published_at = models.DateField('Data de publicação', null=False, blank=False)
 	image = models.ImageField(upload_to='news/images', verbose_name='Imagem de capa para a Notícia', null=True, blank=True)
 	legendImage = models.CharField('Legenda da Imagem', max_length=200, null=True, blank=True)
 	creditsImage = models.CharField('Creditos da imagem', max_length=200, null=True, blank=True)
