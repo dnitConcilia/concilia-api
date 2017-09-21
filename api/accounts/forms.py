@@ -30,4 +30,5 @@ class UserAdminForm(forms.ModelForm):
 			'username', 'email', 'name',
 			'birth', 'rg', 'cpf', 'sexo',
 			'phone', 'is_active', 'is_staff',
+			'is_superuser'
 		)
