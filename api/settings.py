@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 	'api.timeline',
 	'api.documents',
 	'api.gallery',
+	'api.contact',
 ]
 
 SITE_ID = 1

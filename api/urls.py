@@ -18,6 +18,7 @@ from api.communities.views import CommunitySlugView
 from api.timeline.urls import router as routerTimeline
 from api.documents.urls import router as routerDocuments
 from api.gallery.urls import router as routerGallery
+from api.contact.urls import router as routerContact
 
 router = routers.DefaultRouter()
 router.extend(routerAccounts)
@@ -28,6 +29,7 @@ router.extend(routerCommunities)
 router.extend(routerTimeline)
 router.extend(routerDocuments)
 router.extend(routerGallery)
+router.extend(routerContact)
 
 urlpatterns = [
 	url(r'^jet/', include('jet.urls', 'jet')),
