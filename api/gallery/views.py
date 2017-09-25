@@ -76,16 +76,23 @@ class GalleryViewSet(viewsets.ModelViewSet):
 
 		return serializer_class
 
+
 class GallerySlugView(viewsets.ModelViewSet):
 	permission_classes = (IsAuthenticated,)
 
 	def list(self, request, *args, **kwargs):
 		try:
-			news = GalleryReadSerializer(Gallery.objects.filter(slug=self.kwargs['slug'])[0])
-			return HttpResponse(json.dumps(news.data),
+			gallery = GalleryReadSerializer(
+				Gallery.objects.filter(
+					slug=self.kwargs['slug']
+				)[0]
+			)
+			return HttpResponse(
+				json.dumps(gallery.data),
 				content_type="application/json"
 			)
 		except:
-			return HttpResponse(json.dumps({}),
-					content_type="application/json"
-				)
+			return HttpResponse(
+				json.dumps({}),
+				content_type="application/json"
+			)

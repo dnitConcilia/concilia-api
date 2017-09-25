@@ -2,7 +2,7 @@ from django.db import models
 
 class Photo(models.Model):
 	title = models.CharField("Título", max_length=200, blank=True, null=True)
-	photo = models.ImageField("Arquivo", upload_to="/gallery/photos")
+	photo = models.ImageField("Arquivo", upload_to="gallery/photos")
 	legend = models.CharField("Legenda", blank=True, max_length=300)
 	credit = models.CharField("Créditos", blank=True, max_length=100)
 	link = models.URLField("Link externo", blank=True, null=True)
@@ -45,19 +45,19 @@ class CategoryGallery(models.Model):
 		verbose_name_plural = "Categorias das galerias"
 
 	def __str__(self):
-		return self.name
+		return self.category
 
 
 class Gallery(models.Model):
-
+	face = models.ImageField("Rosto da galeria", upload_to="gallery/faces")
 	title = models.CharField('Título', max_length=500)
 	text = models.TextField(verbose_name='Texto', null=True, blank=True)
 	categoryGallery = models.ForeignKey('gallery.CategoryGallery', blank=True, null=True)
 	slug = models.SlugField('Slug', max_length=500, null=False, blank=False, unique=True, help_text="'slug' é um identificador único que será mostrado na url")
 	is_public = models.BooleanField(('É Pública ?'), default=True, blank=True, help_text=('Somente as notícias marcadas como públicas serão apresentadas no site.'))
 
-	photos = models.ManyToManyField('gallery.Photo')
-	videos = models.ManyToManyField('gallery.Video')
+	photos = models.ManyToManyField('gallery.Photo', blank=True, null=True)
+	videos = models.ManyToManyField('gallery.Video', blank=True, null=True)
 
 	created_at = models.DateTimeField('Criado em', auto_now_add=True)
 	updated_at = models.DateTimeField('Atualizado em', auto_now=True)
@@ -72,4 +72,4 @@ class Gallery(models.Model):
 	def save(self, *args, **kwargs):
 		if self.slug is None:
 			self.slug = slugify(self.categoryGallery.category + self.title)
-		super(News, self).save(*args, **kwargs)
+		super(Gallery, self).save(*args, **kwargs)
