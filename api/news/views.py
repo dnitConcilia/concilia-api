@@ -61,9 +61,8 @@ class NewsLastSixView(viewsets.ModelViewSet):
 
 	def list(self, request, *args, **kwargs):
 		try:
-			last_ten = News.objects.all().order_by('-published_at')[:6]
-			last_ten_in_ascending_order = reversed(last_ten)
-			news = NewsReadSerializer(last_ten_in_ascending_order, many=True)
+			last_ten = (News.objects.all().order_by('-published_at'))[:6]
+			news = NewsReadSerializer(last_ten, many=True)
 			return HttpResponse(json.dumps(news.data),
 				content_type="application/json"
 			)
