@@ -36,7 +36,7 @@ class UserAdmin(BaseUserAdmin):
 			'Permissões',
 			{
 				'fields': (
-					'is_active', 'is_superuser',
+					'is_active', 'is_staff', 'is_superuser',
 					'groups', 'user_permissions'
 				)
 			}
@@ -44,7 +44,7 @@ class UserAdmin(BaseUserAdmin):
 	)
 	list_display = (
 		'name', 'username', 'email',
-		'is_active', 'is_staff',
+		'is_active', 'is_staff', 'is_superuser',
 		'date_joined',
 	)
 
