@@ -18,6 +18,7 @@ from api.communities.views import CommunitySlugView
 from api.timeline.urls import router as routerTimeline
 from api.documents.urls import router as routerDocuments
 from api.gallery.urls import router as routerGallery
+from api.gallery.views import GallerySlugView
 from api.contact.urls import router as routerContact
 
 router = routers.DefaultRouter()
@@ -46,6 +47,8 @@ urlpatterns = [
 	url(r'^api/news-last-six/$', NewsLastSixView.as_view({'get': 'list'})),
 
 	url(r'^api/community-slug/(?P<slug>[\-\d\w]+)/$', CommunitySlugView.as_view({'get': 'list'})),
+
+	url(r'^api/gallery-slug/(?P<slug>[\-\d\w]+)/$', GallerySlugView.as_view({'get': 'list'})),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
