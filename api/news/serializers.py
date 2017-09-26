@@ -78,6 +78,7 @@ class NewsWriteSerializer(serializers.ModelSerializer):
 			legendImage=validated_data.pop('legendImage'),
 			creditsImage=validated_data.pop('creditsImage'),
 			slug=slug,
+			authorText=validated_data.pop('authorText'),
 			author=user,
 			noticeOrigin=validated_data.pop('noticeOrigin'),
 			is_public=validated_data.pop('is_public')
@@ -126,6 +127,7 @@ class NewsWriteSerializer(serializers.ModelSerializer):
 			legendImage=validated_data.pop('legendImage'),
 			creditsImage=validated_data.pop('creditsImage'),
 			slug=slug,
+			authorText=validated_data.pop('authorText'),
 			author=user,
 			noticeOrigin=validated_data.pop('noticeOrigin'),
 			is_public=validated_data.pop('is_public')
