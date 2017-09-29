@@ -24,7 +24,6 @@ class CategoryNewsWriteSerializer(serializers.ModelSerializer):
 
 class NewsReadSerializer(serializers.ModelSerializer):
 	categoryNews = CategoryNewsReadSerializer(many=False)
-	author = UserReadSerializer(many=False)
 
 	class Meta:
 		model = News
@@ -33,7 +32,6 @@ class NewsReadSerializer(serializers.ModelSerializer):
 
 class NewsWriteSerializer(serializers.ModelSerializer):
 	id_categoryNews = serializers.IntegerField(write_only=True, required=False)
-	id_author = serializers.IntegerField(write_only=True, required=False)
 	# image = serializers.ImageField(required=False, max_length=None, allow_empty_file=True, use_url=True)
 
 	def create(self, validated_data):
@@ -78,7 +76,7 @@ class NewsWriteSerializer(serializers.ModelSerializer):
 			legendImage=validated_data.pop('legendImage'),
 			creditsImage=validated_data.pop('creditsImage'),
 			slug=slug,
-			author=user,
+			authorText=validated_data.pop('authorText'),
 			noticeOrigin=validated_data.pop('noticeOrigin'),
 			is_public=validated_data.pop('is_public')
 		)
@@ -126,7 +124,7 @@ class NewsWriteSerializer(serializers.ModelSerializer):
 			legendImage=validated_data.pop('legendImage'),
 			creditsImage=validated_data.pop('creditsImage'),
 			slug=slug,
-			author=user,
+			authorText=validated_data.pop('authorText'),
 			noticeOrigin=validated_data.pop('noticeOrigin'),
 			is_public=validated_data.pop('is_public')
 		)
