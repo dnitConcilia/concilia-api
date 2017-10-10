@@ -29,6 +29,7 @@ class News(models.Model):
 	noticeOrigin = models.CharField('Fonte da notícia', max_length=200, null=True, blank=True)
 	slug = models.SlugField('Identificador', max_length=500, null=False, blank=False, unique=True, help_text="'slug' é um identificador único que será mostrado na url")
 	is_public = models.BooleanField(('É Pública ?'), default=True, blank=True, help_text=('Somente as notícias marcadas como públicas serão apresentadas no site.'))
+	is_formated = models.BooleanField(('Formatada ?'), default=False, blank=True, help_text=('Marcar esse campo somente quando a notícia estiver formatada'))
 
 	expired_at = models.DateField('Data de expiração da notícia', null=True, blank=True)
 	created_at = models.DateTimeField('Criado em', auto_now_add=True)
@@ -62,3 +63,21 @@ class News(models.Model):
 			return True
 		else:
 			return False
+
+
+class PhotoNews(models.Model):
+	news = models.ForeignKey('news.News', blank=True, null=True)
+	image = models.ImageField(upload_to='news/images', verbose_name='Imagem de capa para a Notícia', null=True, blank=True)
+	legendImage = models.CharField('Legenda da Imagem', max_length=200, null=True, blank=True)
+	creditsImage = models.CharField('Creditos da imagem', max_length=200, null=True, blank=True)
+
+	created_at = models.DateTimeField('Criado em', auto_now_add=True)
+	updated_at = models.DateTimeField('Atualizado em', auto_now=True)
+
+	class Meta:
+		verbose_name = 'Foto da notícia'
+		verbose_name_plural = 'Foto da Notícias'
+		ordering = ['news']
+
+	def __str__(self):
+		return self.legendImage

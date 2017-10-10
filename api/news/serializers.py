@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from api.news.models import CategoryNews, News
+from api.news.models import CategoryNews, News, PhotoNews
 from api.accounts.models import User
 from api.accounts.serializers import UserReadSerializer
 from api.core.utils import slugifyTitle
@@ -136,3 +136,18 @@ class NewsWriteSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = News
 		exclude = ('id', 'slug', 'categoryNews', 'created_at', 'updated_at')
+
+class PhotoNewsReadSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = PhotoNews
+		exclude = ('created_at', 'updated_at')
+
+
+class PhotoNewsWriteSerializer(serializers.ModelSerializer):
+	def create(self, validated_data):
+		photoNews, created = PhotoNews.objects.get_or_create(**validated_data)
+		return photoNews
+
+	class Meta:
+		model = PhotoNews
+		exclude = ('id', 'created_at', 'updated_at')
