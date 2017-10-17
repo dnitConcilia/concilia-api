@@ -30,7 +30,7 @@ class CategoryNewsViewSet(viewsets.ModelViewSet):
 
 
 class NewsViewSet(viewsets.ModelViewSet):
-	queryset = News.objects.all().order_by('-published_at')
+	queryset = News.objects.filter(is_public=True).order_by('-published_at')
 	serializer_class = NewsReadSerializer
 	permission_classes = (IsAuthenticated,)
 
@@ -43,7 +43,7 @@ class NewsViewSet(viewsets.ModelViewSet):
 			serializer_class = NewsWriteSerializer
 
 		return serializer_class
-		
+
 class PhotoNewsViewSet(viewsets.ModelViewSet):
 	queryset = PhotoNews.objects.all().order_by('news')
 	serializer_class = PhotoNewsReadSerializer
@@ -64,7 +64,12 @@ class NewsSlugView(viewsets.ModelViewSet):
 
 	def list(self, request, *args, **kwargs):
 		try:
-			news = NewsReadSerializer(News.objects.filter(slug=self.kwargs['slug'])[0])
+			news = NewsReadSerializer(
+				News.objects.filter(
+					slug=self.kwargs['slug'],
+					is_public=True
+				)[0]
+			)
 			return HttpResponse(json.dumps(news.data),
 				content_type="application/json"
 			)

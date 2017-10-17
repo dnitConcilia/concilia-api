@@ -179,11 +179,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 
-# E-mail
-EMAIL_HOST = ''
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-DEFAULT_FROM_EMAIL = 'admin@dnit.gov.br'
+# Configurando Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # este é o padrão
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'Concilia BR-381 <conciliaanel@gmail.com>'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'conciliaanel@gmail.com'
+EMAIL_HOST_PASSWORD = 'Dnit@123'
+EMAIL_PORT = 587
+
+# constante de contato
+EMAIL_CONTACT = 'conciliaanel@gmail.com'
 
 
 # Heroku settings
