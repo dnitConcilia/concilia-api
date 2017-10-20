@@ -1,5 +1,3 @@
-import threading
-
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -25,37 +23,27 @@ class Contact(models.Model):
 
 	def __str__(self):
 		return self.name
-		
-	def save(self, *args, **kwargs):
-		super(Contact, self).save(*args, **kwargs)
+
+
+@receiver(post_save, sender=Contact)
+def send_email(sender, instance=None, created=False, **kwargs):
+	if created:
+		template_name = 'contact/get_mail.html'
 		context = {
-			'pk': self.id,
-			'name': self.name,
-			'lastName': self.lastName,
-			'email': self.email,
-			'subject': self.subject,
-			'message': self.message
+			'pk': instance.pk,
+			'name': instance.name,
+			'lastName': instance.lastName,
+			'email': instance.email,
+			'subject': instance.subject,
+			'message': instance.message
 		}
-		t = threading.Thread(target=send_email, args=(context,))
-		t.start()
-	
-def send_email(context):
-	template_name = 'contact/get_mail.html'
-		
-	recipient_list = [
-		'conciliaanel@gmail.com',
-		'yep.dias@gmail.com'
-	]
-	try:
+
+		recipient_list = [
+			'conciliaanel@gmail.com',
+		]
+
 		send_email_template(
 			'[Concilia] Contato feito pelo site', template_name, context,
 			recipient_list, from_email=settings.DEFAULT_FROM_EMAIL,
 			fail_silently=False
 		)
-	except:
-		Contact.objects.create(name='Error', lastName='Email',
-			email=context['email'], subject='Erro ao enviar o email',
-			message='Não foi possível enviar email'
-		)
-			
-	return
