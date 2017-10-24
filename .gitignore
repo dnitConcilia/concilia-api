@@ -3,3 +3,4 @@ venv*
 *.sqlite3
 concilia.sqlite3
 media/*
+concilia.sqlite3
