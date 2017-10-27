@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 	'api.documents',
 	'api.gallery',
 	'api.contact',
+	'api.alerts',
 ]
 
 SITE_ID = 1

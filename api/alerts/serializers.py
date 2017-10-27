@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from api.alerts.models import Alert
-# TODO: Fazer os serializers de alerts
 
 
 class AlertReadSerializer(serializers.ModelSerializer):
