@@ -5,12 +5,6 @@ MEETING_TYPE = (
 	('outro', 'Outros')
 )
 
-NOTICE_TYPE = (
-	('', ''),
-	('', ''),
-	('', '')
-)
-
 
 class Meeting(models.Model):
 	title = models.CharField('Título da ata de reunião', max_length=500)
@@ -46,10 +40,10 @@ class NoticeType(models.Model):
 		return self.name
 
 class Notice(models.Model):
-	title = models.CharField('Título do edital', max_length=500)
 	description = models.TextField(verbose_name='Descrição', null=True, blank=True)
 	notice = models.FileField(upload_to='edital/%Y/%m/%d/', verbose_name='Arquivo', null=False, blank=False)
 	date = models.DateField('Data do edital', null=True, blank=True)
+	publishDate = models.DateField('Data da publicação', null=True, blank=True)
 	noticeType = models.ForeignKey('meeting.NoticeType', verbose_name='Tipo de edital', null=True, blank=True)
 	link = models.CharField('Link externo para o edital', max_length=500, null=True, blank=True)
 
@@ -61,4 +55,4 @@ class Notice(models.Model):
 		verbose_name_plural = "Editais"
 
 	def __str__(self):
-		return self.title
+		return self.description
