@@ -18,14 +18,10 @@ from api.gallery.urls import router as routerGallery
 from api.contact.urls import router as routerContact
 from api.alerts.urls import router as routerAlert
 
-from api.news.views import NewsSlugView, NewsLastSixView
+from api.news.views import NewsSlugView, NewsLastSixView, NewsLastThreeView, NewsByCategoryView
 from api.communities.views import CommunitySlugView
 from api.gallery.views import GallerySlugView
 from api.meeting.views import MeetingCategoryView, NoticeCategoryView
-
-from api.news.views import NewsSlugView, NewsLastSixView
-
-from api.news.views import NewsSlugView, NewsLastSixView
 
 router = routers.DefaultRouter()
 
@@ -55,6 +51,8 @@ urlpatterns = [
 
 	url(r'^api/news-slug/(?P<slug>[\-\d\w]+)/$', NewsSlugView.as_view({'get': 'list'})),
 	url(r'^api/news-last-six/$', NewsLastSixView.as_view({'get': 'list'})),
+	url(r'^api/news-last-three/$', NewsLastThreeView.as_view({'get': 'list'})),
+	url(r'^api/news/category/(?P<id>\d+)/$', NewsByCategoryView.as_view({'get': 'list'})),
 
 	url(r'^api/community-slug/(?P<slug>[\-\d\w]+)/$', CommunitySlugView.as_view({'get': 'list'})),
 

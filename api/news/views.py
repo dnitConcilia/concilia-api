@@ -77,6 +77,26 @@ class NewsSlugView(viewsets.ModelViewSet):
 			return HttpResponse(json.dumps({}),
 					content_type="application/json"
 				)
+				
+class NewsByCategoryView(viewsets.ModelViewSet):
+	permission_classes = (IsAuthenticated,)
+
+	def list(self, request, *args, **kwargs):
+		try:
+			news = NewsReadSerializer(
+				News.objects.filter(
+					categoryNews__id=int(self.kwargs['id']),
+					is_public=True
+				),
+				many=True
+			)
+			return HttpResponse(json.dumps(news.data),
+				content_type="application/json"
+			)
+		except:
+			return HttpResponse(json.dumps({}),
+					content_type="application/json"
+				)
 
 class NewsLastSixView(viewsets.ModelViewSet):
 	permission_classes = (IsAuthenticated,)
@@ -85,6 +105,21 @@ class NewsLastSixView(viewsets.ModelViewSet):
 		try:
 			last_six = (News.objects.filter(is_public=True).order_by('-published_at'))[:6]
 			news = NewsReadSerializer(last_six, many=True)
+			return HttpResponse(json.dumps(news.data),
+				content_type="application/json"
+			)
+		except:
+			return HttpResponse(json.dumps({}),
+					content_type="application/json"
+				)
+
+class NewsLastThreeView(viewsets.ModelViewSet):
+	permission_classes = (IsAuthenticated,)
+
+	def list(self, request, *args, **kwargs):
+		try:
+			last_three = (News.objects.filter(is_public=True).order_by('-published_at'))[:3]
+			news = NewsReadSerializer(last_three, many=True)
 			return HttpResponse(json.dumps(news.data),
 				content_type="application/json"
 			)

@@ -17,7 +17,7 @@ class Timeline(models.Model):
 	class Meta:
 		verbose_name = 'Evento da linha do tempo'
 		verbose_name_plural = 'Eventos da linha do tempo'
-		ordering = ['date']
+		ordering = ['-date']
 
 	def __str__(self):
 		return self.title

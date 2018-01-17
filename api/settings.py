@@ -113,10 +113,6 @@ REST_FRAMEWORK = {
 # Auth
 AUTH_USER_MODEL = 'accounts.User'
 
-CORS_ALLOW_HEADERS = default_headers + (
-	'charset=utf-8',
-)
-
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_PREFLIGHT_MAX_AGE = 86400

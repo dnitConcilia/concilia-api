@@ -7,7 +7,7 @@ from api.timeline.serializers import TimelineReadSerializer, TimelineWriteSerial
 
 class TimelineViewSet(viewsets.ModelViewSet):
 	serializer_class = TimelineReadSerializer
-	queryset = Timeline.objects.all()
+	queryset = Timeline.objects.all().order_by('-date')
 	permission_classes = (IsAuthenticated,)
 
 	def get_serializer_class(self):
