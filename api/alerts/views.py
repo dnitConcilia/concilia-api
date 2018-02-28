@@ -12,10 +12,7 @@ from api.alerts.serializers import (
 
 class AlertViewSet(viewsets.ModelViewSet):
 	serializer_class = AlertReadSerializer
-	queryset = Alert.objects.filter(
-		start_at__lte=time.strftime("%Y-%m-%d"),
-		expired_at__gte=time.strftime("%Y-%m-%d")
-	).order_by('expired_at')
+	queryset = Alert.objects.all().order_by('expired_at')
 	permission_classes = (IsAuthenticated,)
 
 	def get_serializer_class(self):
