@@ -13,6 +13,7 @@ from api.common_questions.urls import router as routerCommonQuestions
 from api.meeting.urls import router as routerMeeting
 from api.communities.urls import router as routerCommunities
 from api.timeline.urls import router as routerTimeline
+from api.testimony.urls import router as routerTestimony
 from api.documents.urls import router as routerDocuments
 from api.gallery.urls import router as routerGallery
 from api.contact.urls import router as routerContact
@@ -35,6 +36,7 @@ router.extend(routerDocuments)
 router.extend(routerGallery)
 router.extend(routerContact)
 router.extend(routerAlert)
+router.extend(routerTestimony)
 
 urlpatterns = [
 	url(r'^jet/', include('jet.urls', 'jet')),

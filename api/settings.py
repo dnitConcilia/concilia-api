@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 	'api.common_questions',
 	'api.communities',
 	'api.timeline',
+	'api.testimony',
 	'api.documents',
 	'api.gallery',
 	'api.contact',
