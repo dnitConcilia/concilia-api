@@ -26,18 +26,18 @@ class Contact(models.Model):
 	def __str__(self):
 		return self.name
 		
-	def save(self, *args, **kwargs):
-		super(Contact, self).save(*args, **kwargs)
-		context = {
-			'pk': self.id,
-			'name': self.name,
-			'lastName': self.lastName,
-			'email': self.email,
-			'subject': self.subject,
-			'message': self.message
-		}
-		t = threading.Thread(target=send_email, args=(context,))
-		t.start()
+#	def save(self, *args, **kwargs):
+#		super(Contact, self).save(*args, **kwargs)
+#		context = {
+#			'pk': self.id,
+#			'name': self.name,
+#			'lastName': self.lastName,
+#			'email': self.email,
+#			'subject': self.subject,
+#			'message': self.message
+#		}
+#		t = threading.Thread(target=send_email, args=(context,))
+#		t.start()
 	
 def send_email(context):
 	template_name = 'contact/get_mail.html'

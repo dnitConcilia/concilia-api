@@ -17,8 +17,10 @@ from api.documents.urls import router as routerDocuments
 from api.gallery.urls import router as routerGallery
 from api.contact.urls import router as routerContact
 from api.alerts.urls import router as routerAlert
+from api.testimony.urls import router as routerTestimony
 
 from api.news.views import NewsSlugView, NewsLastSixView, NewsLastThreeView, NewsByCategoryView
+from api.testimony.views import TestimonyLastFiveView
 from api.communities.views import CommunitySlugView
 from api.gallery.views import GallerySlugView
 from api.meeting.views import MeetingCategoryView, NoticeCategoryView
@@ -35,6 +37,7 @@ router.extend(routerDocuments)
 router.extend(routerGallery)
 router.extend(routerContact)
 router.extend(routerAlert)
+router.extend(routerTestimony)
 
 urlpatterns = [
 	url(r'^jet/', include('jet.urls', 'jet')),
@@ -53,6 +56,8 @@ urlpatterns = [
 	url(r'^api/news-last-six/$', NewsLastSixView.as_view({'get': 'list'})),
 	url(r'^api/news-last-three/$', NewsLastThreeView.as_view({'get': 'list'})),
 	url(r'^api/news/category/(?P<id>\d+)/$', NewsByCategoryView.as_view({'get': 'list'})),
+	
+	url(r'^api/testimony-last-five/$', TestimonyLastFiveView.as_view({'get': 'list'})),
 
 	url(r'^api/community-slug/(?P<slug>[\-\d\w]+)/$', CommunitySlugView.as_view({'get': 'list'})),
 
