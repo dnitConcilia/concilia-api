@@ -7,11 +7,9 @@ from rest_framework.permissions import IsAuthenticated
 from api.testimony.models import Testimony
 from api.testimony.serializers import TestimonyReadSerializer, TestimonyWriteSerializer
 
-
 class TestimonyViewSet(viewsets.ModelViewSet):
 	serializer_class = TestimonyReadSerializer
-	#queryset = Testimony.objects.all()[:5]
-	queryset = Testimony.objects.all()
+	queryset = Testimony.objects.all().order_by('-date')
 	permission_classes = (IsAuthenticated,)
 
 	def get_serializer_class(self):
@@ -24,7 +22,7 @@ class TestimonyViewSet(viewsets.ModelViewSet):
 
 		return serializer_class
 
-class TestimonyLastFiveView(viewsets.ModelViewSet):
+		class TestimonyLastFiveView(viewsets.ModelViewSet):
 	permission_classes = (IsAuthenticated,)
 
 	def list(self, request, *args, **kwargs):
